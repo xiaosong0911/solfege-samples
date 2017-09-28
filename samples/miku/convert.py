@@ -26,5 +26,5 @@ for id in range(5, 128):
     end = (9.1 + (id - 5) * 12) * rate
     start, end = int(start), int(end)
     wav = data[start:end]
-    wav = (wav * (0.8 * 2**15 / np.max(wav))).astype(np.int16) # normalize volume
+    wav = (wav * (0.5 * 2**15 / np.max(wav))).astype(np.int16) # normalize volume
     wavfile.write('samples/note%03d-%s.wav' % (id, note_no2solfege(id)), rate, wav)
