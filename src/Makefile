@@ -1,11 +1,11 @@
 CC = g++
 CFLAGS = -Wall -std=c++11 -I../../sf2cute/include/
-LDFLAGS = -lsndfile -L../../sf2cute/ -lsf2cute -L/usr/local/lib/libgig/ -lgig
+LDFLAGS = -lsndfile -L../../sf2cute/ -lsf2cute -L/usr/lib/libgig/ -lgig
 SRCS = $(wildcard *.cpp)
 OBJS = $(patsubst %.cpp, %.o, $(SRCS))
 DEPS = $(patsubst %.o, %.d, $(OBJS))
 
-all:katy daisy chengu jennifer
+all:katy daisy miku chengu jennifer
 
 KATY_OBJS = katy.o note.o sf2gigbuilder.o
 katy:$(KATY_OBJS)
@@ -14,6 +14,10 @@ katy:$(KATY_OBJS)
 DAISY_OBJS = daisy.o note.o sf2gigbuilder.o
 daisy:$(DAISY_OBJS)
 	$(CC) -o daisy $(DAISY_OBJS) $(LDFLAGS)
+
+MIKU_OBJS = miku.o note.o sf2gigbuilder.o
+miku:$(MIKU_OBJS)
+	$(CC) -o miku $(MIKU_OBJS) $(LDFLAGS)
 
 CHENGU_OBJS = chengu.o note.o sf2gigbuilder.o
 chengu:$(CHENGU_OBJS)

@@ -3,6 +3,8 @@
 #include <set>
 #include <fstream>
 
+#include <math.h>
+
 #include <sf2cute.hpp>
 #include <libgig/gig.h>
 
@@ -59,9 +61,6 @@ void Sf2GigBuilder::BuildSf2(const string &output_filename) const {
           "The \"source code\" means this sound font including all the samples in it. "
           "The modified source versions include the sound fonts (in any format) and synthesizers that use the samples here, "
           "but doesn't include the music created by them.");
-  sf2.set_engineers("Chengu Wang");
-  sf2.set_comment("https://github.com/wcgbg/solfege-samples\n"
-      "Acknowledgment: https://github.com/gocha/sf2cute");
 
   vector<pair<Note, shared_ptr<SFSample>>> notes_and_samples;
   for (auto &note : notes_) {
